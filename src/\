@@ -1,7 +1,7 @@
 let cardNum = [0, 0, 0];
-let number = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
 function getNum(){
+	let number = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 	return number[Math.floor(Math.random() * 13)];
 }
 
@@ -14,11 +14,10 @@ function parseNum(n){
 }
 
 function setCard(n){
-	console.log(n);
 	let cards = $('.card');
 	for(let i in n){
-		cards.eq(i).children().eq(0).text(n[i]);
-		cardNum[i] = parseNum(n[i]);
+		cardNum[i] = cards.eq(i).text(n[i]);
+		cardNum[i] = parseNum(cardNum[i]);
 	}
 }
 
@@ -30,27 +29,27 @@ function newCards(){
 
 function newGame(){
 	newCards();
-	$('#allMoney').val(100);
-	$('#money').val(50);
-	$('#fund').val(10);
+	$('#allMoney').value = 100;
+	$('#money').value = 50;
+	$('#fund').value = 10;
 }
 
 function isHide(){
-	return $('#card2').hasClass('card-hide');
+	return $('#card2').classList.contains('card-hide');
 }
 
 function shot(){
 	if(!isHide()) return newCards();
-	$('#card2').removeClass('card-hide');
+	$('#card2').classList.remove('card-hide');
 
 	function earn(n=1){
-		$('#money').val($('#money').val() - -$('#fund').val() * n);
-		$('#allMoney').val($('#allMoney').val() - $('#fund').val() * n);
+		$('#money').value -= -$('#fund').value * n;
+		$('#allMoney').value -= $('#fund').value * n;
 	}
 
-	if(cardNum[0] == cardNum[1] == cardNum[2]){
+	if(cardNum[0] === cardNum[1] === cardNum[2]){
 		earn(-3);
-	}else if(cardNum[0] == cardNum[1] || cardNum[1] == cardNum[2]){
+	}else if(cardNum[0] === cardNum[1] || cardNum[1] === cardNum[2]){
 		earn(-2);
 	}else if( cardNum[0] > cardNum[1] && cardNum[1] > cardNum[2] ||
 		cardNum[0] < cardNum[1] && cardNum[1] < cardNum[2]){
@@ -62,14 +61,12 @@ function shot(){
 
 newGame();
 
-$('#shot').click(shot);
-$('#giveUp').click(newCards);
+$('#shot').onclick = shot;
+$('#giveUp').onclick = newCards;
 
 // ensure input value
-function notNegative(){
-	if(this.value < 0){
-		this.value = 0;
-	}
+function notNegative(e){
+	console.log(this, e);
 }
 
-$('#fund').change(notNegative);
+[...$All('input')].forEach(i => i.onchange = notNegative);

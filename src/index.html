@@ -2,6 +2,8 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="RobotoMono-Medium.ttf" rel="stylesheet"> 
 		<link rel="stylesheet" href="index.css">
 		<title>Shoot Dragon Gate</title>
 	</head>
@@ -9,21 +11,24 @@
 		<div class="container">
 			<div class="row">
 				<div id="card1" class="card">
-					<p class="num">A</p>
+					<p class="num"></p>
 				</div>
 				<div id="card2" class="card card-hide">
-					<p class="num">K</p>
+					<p class="num"></p>
 				</div>
 				<div id="card3" class="card">
-					<p class="num">K</p>
+					<p class="num"></p>
 				</div>
 			</div>
 			<div class="row">
+				<label for="allMoney">All money
+					<input id="allMoney" type="number" value="100" readonly>
+				</label>
 				<label for="money">Your money
-					<input id="money" type="number" readonly>
+					<input id="money" type="number" value="50" readonly>
 				</label>
 				<label for="fund">Fund:
-					<input id="fund" type="number" step=10>
+					<input id="fund" type="number" value="10" step=10>
 				</label>
 				<br>
 				<button id="shot" type="button">SHOT !</button>
@@ -31,6 +36,7 @@
 			</div>
 		</div>
 
+		<script src="jquery.js"></script>
 		<script src="renderer.js"></script>
 	</body>
 </html>
