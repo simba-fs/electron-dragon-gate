@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="index.css">
+		<title>Shoot Dragon Gate</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div id="card1" class="card">
+					<p class="num">A</p>
+				</div>
+				<div id="card2" class="card card-hide">
+					<p class="num">K</p>
+				</div>
+				<div id="card3" class="card">
+					<p class="num">K</p>
+				</div>
+			</div>
+			<div class="row">
+				<label for="money">Your money
+					<input id="money" type="number" readonly>
+				</label>
+				<label for="fund">Fund:
+					<input id="fund" type="number" step=10>
+				</label>
+				<br>
+				<button id="shot" type="button">SHOT !</button>
+				<button id="giveUp" type="button">Give Up</button>
+			</div>
+		</div>
+
+		<script src="renderer.js"></script>
+	</body>
+</html>

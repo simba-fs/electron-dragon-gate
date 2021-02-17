@@ -1,0 +1,47 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.container {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;	
+}
+
+.card {
+	height: 80px;
+	width: 60px;
+	background: linear-gradient(to top right, #ddd, #fff);
+	border-radius: 10px;
+	margin: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-hide {
+	background: linear-gradient(to top right, #fff, #ddd);
+}
+
+.card-hide p {
+	display: none;
+}
+
+input {
+	width: 50px;
+	margin: 0px 10px;
+}
+
+button {
+	margin: 0px 10px;
+	padding: 0px 5px;
+}
